@@ -49,12 +49,16 @@ private MessageReponse deletmembre (@PathVariable("id") int id) {
 	return membreService.supprimermembre(id) ;
 	
 }
-@GetMapping("/byid/{id}")
-private List<membre> getbyid(@PathVariable("id")int id) {
-	return membreService.consultermembrebyid(id ) ;
+@GetMapping("/bynom/{nom}")
+private List<membre> getbyid(@PathVariable("nom")String  nom) {
+	return membreService.consultermembrebyNom(nom);
 	
 }
-
+@PutMapping("/valide")
+private MessageReponse validemembre ( @RequestBody membre membre ) {
+	System.out.println(membre.toString());
+	return  membreService.validemembre(membre);
+}
 
 
 }

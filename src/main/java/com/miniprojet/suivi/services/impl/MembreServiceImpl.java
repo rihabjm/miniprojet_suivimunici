@@ -108,8 +108,23 @@ return new MessageReponse(true, "operation delet effectue avec succes");
 
 @Transactional
 @Override
-public List<membre> consultermembrebyid(int id) {
-return membrerepository.findMembreByCin(id);
+public List<membre> consultermembrebyNom(String nom) {
+return membrerepository.findMembreByNom(nom) ;
+}
+
+
+@Transactional
+@Override
+public MessageReponse validemembre(membre membre) {
+	// TODO Auto-generated method stub
+if (membrerepository.findById(membre.getId()).orElse(null) != null) {
+	membre.setValide_membre(true);
+	membrerepository.save(membre);
+	 //SendEmail.sendEmail(membre.getLogin(), "vouz etes valide ", "Bienvenu dans notre application , ")
+	return new MessageReponse(true, "le membre est valide") ;
+}
+return new MessageReponse(false, "erreur") ;
+
 }
 
 

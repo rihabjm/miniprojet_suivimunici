@@ -20,8 +20,20 @@ public class reunion {
 	private String pv_reunion ;
 	private String heu_deb_reu ;
 	private String heu_fin_reu ; 
-	private String obj_reunion ;
+	private String objectif ;
 	
+	@JsonIgnore
+	private boolean valide_reu ;
+	
+	
+	
+	public boolean isValide() {
+		return valide_reu;
+	}
+
+	public void setValide(boolean valide) {
+		this.valide_reu = valide;
+	}
 	@JsonIgnore
 	@OneToMany
 	private List<membre> membres ;
@@ -70,11 +82,11 @@ public class reunion {
 	public void setHeu_fin_reu(String heu_fin_reu) {
 		this.heu_fin_reu = heu_fin_reu;
 	}
-	public String getObj_reunion() {
-		return obj_reunion;
+	public String getobjectif() {
+		return objectif;
 	}
-	public void setObj_reunion(String obj_reunion) {
-		this.obj_reunion = obj_reunion;
+	public void setobjectif(String objectif) {
+		this.objectif = objectif;
 	} 
 	
 	

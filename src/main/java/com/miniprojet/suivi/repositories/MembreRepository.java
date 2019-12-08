@@ -12,5 +12,6 @@ public interface MembreRepository extends JpaRepository<membre, Integer> {
  List<membre> findMembreByCin(int cin);
  membre findMembreByLogin(String login ) ; 
  List< membre> findByLogin(String login);
+ List<membre> findMembreByNom(String nom) ;
 
 }

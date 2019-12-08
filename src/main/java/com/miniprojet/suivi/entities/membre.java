@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -35,9 +36,25 @@ public class membre implements Serializable {
 	private String nom ; 
 	private int tel ; 
 	private String adresse ; 
-	private int poste_membre ; 
+	private String poste_membre ; 
 	private String login ; 
+	@JsonIgnore
+	@Column(name="valide")
+	private boolean valide_membre ;
 	
+	
+public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public boolean isValide_membre() {
+		return valide_membre;
+	}
+	public void setValide_membre(boolean valide_membre) {
+		this.valide_membre = valide_membre;
+	}
 @OneToOne
 private Municipale Municipale ;
 
@@ -58,7 +75,7 @@ public void setReunions(List<reunion> reunions) {
 public void setMunicipale(Municipale municipale) {
 	Municipale = municipale;
 }
-	@JsonIgnore
+	
 	private String mdp ;
 	public int getCin() {
 		return cin;
@@ -90,10 +107,10 @@ public void setMunicipale(Municipale municipale) {
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-	public int getPoste_membre() {
+	public String getPoste_membre() {
 		return poste_membre;
 	}
-	public void setPoste_membre(int poste_membre) {
+	public void setPoste_membre(String poste_membre) {
 		this.poste_membre = poste_membre;
 	}
 
@@ -103,7 +120,7 @@ public void setMunicipale(Municipale municipale) {
 	public void setLogin(String login) {
 		this.login = login;
 	}
-	@JsonIgnore
+	
 	public String getMdp() {
 		return mdp;
 	}

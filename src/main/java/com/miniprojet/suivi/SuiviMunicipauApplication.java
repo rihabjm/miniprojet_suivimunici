@@ -50,7 +50,11 @@ private MembreRepository membreRepository ;
 	@Override
 	public void run(String... args) throws Exception {
 	
-	
+		
+		
+		//renionRepository.findReunionByObjectif("");
+		
+		
 		//System.out.println(membreRepository.findById(1).orElse(null).getLogin());	
 //		ap.bCryptPasswordEncoder() ; 
 		//renionRepository.findAll() ; 

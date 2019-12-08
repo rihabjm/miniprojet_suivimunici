@@ -18,8 +18,9 @@ public interface MembreService{
 	public List<membre> getmembre () ; 
 	//public UserDetails loadUserByUsername(String login) ;
 	//
+	
 	public MessageReponse updatemembre( membre membre) ;
 public MessageReponse supprimermembre ( int id);
-public List<membre> consultermembrebyid(int id);
-	
+public List<membre> consultermembrebyNom(String  nom);
+	public MessageReponse validemembre ( membre membre) ;
 }
